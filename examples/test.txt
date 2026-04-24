@@ -1,0 +1,32 @@
+# Test Signals for Verification
+# These signals test specific features of the generator
+
+# Test 1: Single frequency - A4 note (440 Hz)
+440;1000;50
+
+# Test 2: Frequency ramp down
+1000-500;1000;50
+
+# Test 3: Frequency ramp up
+500-1000;1000;50
+
+# Test 4: Volume ramp down
+850;1000;80-20
+
+# Test 5: Volume ramp up
+850;1000;20-80
+
+# Test 6: Dual frequency chord
+850,1200;1000;30,30
+
+# Test 7: Triple frequency chord
+440,554,659;1500;33,33,33
+
+# Test 8: Complex - both frequency and volume ramp
+1000-500;1500;70-30
+
+# Test 9: Very short click
+2000;50;90
+
+# Test 10: Very long tone
+200;5000;40

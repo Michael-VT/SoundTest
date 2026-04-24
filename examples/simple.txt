@@ -1,0 +1,17 @@
+# Simple Sound Examples
+# Format: frequency;duration_ms;level_percent
+
+# Simple beep at 850 Hz
+850;1000;50
+
+# Higher tone at 1200 Hz
+1200;800;60
+
+# Low tone at 440 Hz (A4)
+440;1500;70
+
+# Short click
+2000;100;80
+
+# Long low tone
+200;3000;40

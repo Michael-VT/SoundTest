@@ -1,0 +1,31 @@
+# Complex Sound Examples
+# Format: frequency;duration_ms;level_percent
+
+# Frequency sweep (ramp) from 1200 Hz down to 850 Hz
+1200-850;1200;40
+
+# Reverse sweep from 200 Hz up to 1000 Hz
+200-1000;2000;30
+
+# Volume ramp from 80% down to 10%
+850;1000;80-10
+
+# Combined frequency and volume ramp
+1200-600;1500;70-20
+
+# Chord: two frequencies playing simultaneously
+1200,850;1000;20,30
+
+# Major chord triad (C5: 523 Hz, E5: 659 Hz, G5: 784 Hz)
+523,659,784;2000;40
+
+# Descending tone sequence with varying volumes
+850;500;50
+600;500;60
+440;500;70
+
+# Sci-fi sweep effect
+2000-200;1500;60-10
+
+# Pulsing effect (loud-soft-loud-soft)
+850;500,500,500,500;80,20,80,20
