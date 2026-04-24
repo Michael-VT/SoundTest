@@ -5,6 +5,9 @@ __pycache__/
 *.pyd
 .Python
 *.so
+.gitkeep
+.gitignore
+.project_profile.json
 
 # Generated audio files
 output/*.wav
@@ -17,9 +20,6 @@ Thumbs.db
 ._*
 .Spotlight-V100
 .Trashes
-.gitkeep
-.gitignore
-.project_profile.json
 
 # IDE
 .vscode/
