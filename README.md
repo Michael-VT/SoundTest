@@ -2,9 +2,7 @@
 
 Cross-platform sound signal generator with interactive TUI control.
 
-Генератор звуковых сигналов с интерактивным управлением.
-
-## Features / Возможности
+## Features
 
 - 🎵 Generate tones, frequency sweeps, and chords
 - 🎹 Interactive TUI mode with keyboard control  
@@ -12,16 +10,16 @@ Cross-platform sound signal generator with interactive TUI control.
 - 🌍 Simple text-based signal format
 - 📝 No external dependencies required
 
-## Requirements / Требования
+## Requirements
 
-### Required / Обязательные
+### Required
 - Python 3.8 or higher
 
-### Optional / Опциональные  
+### Optional  
 - NumPy (for future visualization features)
 - SciPy (for advanced processing)
 
-## Installation / Установка
+## Installation
 
 ### macOS / Linux
 ```bash
@@ -42,9 +40,9 @@ pkg install python
 pkg install numpy  # Optional
 ```
 
-## Usage / Использование
+## Usage
 
-### Batch Mode / Пакетный режим
+### Batch Mode
 
 Generate and play from file:
 ```bash
@@ -66,9 +64,9 @@ Custom output file:
 python3 generate_sound.py -i examples/simple.txt -o output/my_sounds.wav
 ```
 
-### Interactive Mode / Интерактивный режим
+### Interactive Mode
 
-#### Quick Start / Быстрый запуск
+#### Quick Start
 
 Launch interactive TUI:
 ```bash
@@ -77,182 +75,159 @@ python3 generate_sound.py -i sound.txt --interactive
 
 **Expected:** Terminal clears and shows interface with signal list.
 
-**Ожидается:** Терминал очищается и показывает интерфейс со списком сигналов.
+#### Keyboard Shortcuts
 
-#### Keyboard Shortcuts / Горячие клавиши
+- `n` or `→` or `Space` - Next line + play
+- `p` or `←` - Previous line + play
+- `r` - Repeat current line once
+- `R` - Repeat infinitely
+- `s` - Stop playback
+- `q` - Quit
 
-- `n` or `→` or `Space` - Next line + play / Следующая строка + воспроизведение
-- `p` or `←` - Previous line + play / Предыдущая строка + воспроизведение  
-- `r` - Repeat current line once / Повторить текущий один раз
-- `R` - Repeat infinitely / Повторять бесконечно
-- `s` - Stop playback / Остановить воспроизведение
-- `q` - Quit / Выход
+#### Interactive Mode Guide
 
-#### Interactive Mode Guide / Руководство по интерактивному режиму
+**Terminal Requirements:**
+- Minimum size: 80x24 characters
+- Fullscreen mode recommended
 
-**Terminal Requirements / Требования к терминалу:**
-- Minimum size: 80x24 characters / Минимум 80x24 символов
-- Fullscreen mode recommended / Рекомендуется полноэкранный режим
-
-**What You'll See / Что вы увидите:**
+**What You'll See:**
 - Header: "Sound Generator - Interactive Mode"
 - Signal list with current line highlighted (inverted colors)
 - Signal info: frequency, duration, volume level
 - Status: PLAYING, REPEAT ONCE, REPEAT ∞, or Stopped
 - Help line at bottom: `[n]ext [p]rev [r]epeat [R]epeat ∞ [s]top [q]uit`
 
-**Заголовок: "Sound Generator - Interactive Mode"
-- Список сигналов с подсветкой текущей линии (инверсные цвета)
-- Информация о сигнале: частота, длительность, уровень громкости
-- Статус: PLAYING, REPEAT ONCE, REPEAT ∞ или Stopped
-- Строка помощи внизу: `[n]ext [p]rev [r]epeat [R]epeat ∞ [s]top [q]uit`
+#### Step-by-Step Testing
 
-#### Step-by-Step Testing / Пошаговое тестирование
+**TEST 1: Navigation (without sound)**
 
-**TEST 1: Navigation (without sound) / Навигация (без звука)**
-
-1. Press `n` several times (3-5 times) / Нажмите `n` несколько раз
-2. Observe: Current line moves down / Наблюдайте: текущая линия движется вниз
-3. Press `p` several times / Нажмите `p` несколько раз
-4. Observe: Current line moves up / Наблюдайте: текущая линия движется вверх
+1. Press `n` several times (3-5 times)
+2. Observe: Current line moves down
+3. Press `p` several times
+4. Observe: Current line moves up
 
 **Expected:** Highlighted line moves through list, no audio plays.
 
-**Ожидается:** Подсвеченная линия движется по списку, звук не воспроизводится.
+**TEST 2: Playback with Navigation**
 
-**TEST 2: Playback with Navigation / Воспроизведение с навигацией**
-
-1. Press `Space` (spacebar) / Нажмите `Space` (пробел)
-2. Listen: Current signal should play / Слушайте: должен воспроизвестись текущий сигнал
-3. Wait for completion / Подождите окончания
-4. Press `Space` again for next signal / Нажмите `Space` снова для следующего сигнала
-5. Repeat for all 5 signals / Повторите для всех 5 сигналов
+1. Press `Space` (spacebar)
+2. Listen: Current signal should play
+3. Wait for completion
+4. Press `Space` again for next signal
+5. Repeat for all 5 signals
 
 **Expected:** Each Space press plays a new signal, status shows "PLAYING".
 
-**Ожидается:** При каждом нажатии Space воспроизводится новый сигнал, статус показывает "PLAYING".
+**TEST 3: Repeat Once (r)**
 
-**TEST 3: Repeat Once (r) / Повтор один раз (r)**
-
-1. Press `p` to return to line 1 / Нажмите `p` чтобы вернуться к линии 1
-2. Press `r` / Нажмите `r`
-3. Observe: Status shows "REPEAT ONCE" / Наблюдайте: статус показывает "REPEAT ONCE"
-4. Listen: Signal plays 2 times consecutively / Слушайте: сигнал воспроизводится 2 раза подряд
+1. Press `p` to return to line 1
+2. Press `r`
+3. Observe: Status shows "REPEAT ONCE"
+4. Listen: Signal plays 2 times consecutively
 
 **Expected:** Current signal plays twice, then "REPEAT ONCE" status disappears.
 
-**Ожидается:** Текущий сигнал воспроизводится дважды, затем статус "REPEAT ONCE" исчезает.
+**TEST 4: Infinite Repeat (R)**
 
-**TEST 4: Infinite Repeat (R) / Бесконечный повтор (R)**
-
-1. Press `R` (capital R) / Нажмите `R` (большая R)
-2. Observe: Status shows "REPEAT ∞" / Наблюдайте: статус показывает "REPEAT ∞"
-3. Listen: Signal plays continuously / Слушайте: сигнал воспроизводится непрерывно
-4. Wait for 2-3 cycles / Подождите 2-3 цикла повторения
-5. Press `s` to stop / Нажмите `s` для остановки
+1. Press `R` (capital R)
+2. Observe: Status shows "REPEAT ∞"
+3. Listen: Signal plays continuously
+4. Wait for 2-3 cycles
+5. Press `s` to stop
 
 **Expected:** Signal repeats infinitely until `s` is pressed.
 
-**Ожидается:** Сигнал повторяется бесконечно, пока не нажата `s`.
+**TEST 5: Combined Navigation**
 
-**TEST 5: Combined Navigation / Комбинированная навигация**
-
-1. Press `→` (right arrow) - next + play / Нажмите `→` (стрелка вправо)
-2. Wait for completion / Подождите окончания
-3. Press `←` (left arrow) - previous + play / Нажмите `←` (стрелка влево)
-4. Wait for completion / Подождите окончания
-5. Press `n` - next line / Нажмите `n` - следующая линия
-6. Press `p` - previous line / Нажмите `p` - предыдущая линия
+1. Press `→` (right arrow) - next + play
+2. Wait for completion
+3. Press `←` (left arrow) - previous + play
+4. Wait for completion
+5. Press `n` - next line
+6. Press `p` - previous line
 
 **Expected:** All three methods (arrows, n/p, Space) work for navigation.
 
-**Ожидается:** Все три метода (стрелки, n/p, Space) работают для навигации.
+**TEST 6: Stop Playback**
 
-**TEST 6: Stop Playback / Остановка воспроизведения**
-
-1. Press `n` to start playback / Нажмите `n` для начала воспроизведения
-2. Immediately press `s` / Сразу нажмите `s`
-3. Observe: "PLAYING" status disappears / Наблюдайте: статус "PLAYING" исчезает
+1. Press `n` to start playback
+2. Immediately press `s`
+3. Observe: "PLAYING" status disappears
 
 **Expected:** Playback stops (current cycle completes).
 
-**Ожидается:** Воспроизведение прекращается (текущий цикл завершается).
-
-**TEST 7: Different Files / Разные файлы**
+**TEST 7: Different Files**
 
 ```bash
-# Exit current mode (q) / Выход из текущего режима (q)
-# Test with another file / Протестируйте с другим файлом
+# Exit current mode (q)
+# Test with another file
 python3 generate_sound.py -i examples/simple.txt --interactive
 ```
 
-1. Try navigation through simple examples / Попробуйте навигацию по простым примерам
-2. Test different signals / Протестируйте разные сигналы
+1. Try navigation through simple examples
+2. Test different signals
 
-**TEST 8: Exit and Verify / Выход и проверка**
+**TEST 8: Exit and Verify**
 
-1. Press `q` to exit / Нажмите `q` для выхода
-2. Observe: Terminal returns to normal / Наблюдайте: терминал возвращается в нормальное состояние
-3. Check: output/sound.wav updated / Проверьте: файл output/sound.wav обновлен
+1. Press `q` to exit
+2. Observe: Terminal returns to normal
+3. Check: output/sound.wav updated
 
 **Expected:** Clean exit without errors, terminal works normally, last signal saved.
 
-**Ожидается:** Нормальный выход без ошибок, терминал работает корректно, последний сигнал сохранен.
-
-#### Quick Verification (5 minutes) / Быстрая проверка (5 минут)**
+#### Quick Verification (5 minutes)
 
 ```bash
-# Launch / Запуск
+# Launch
 python3 generate_sound.py -i sound.txt --interactive
 
-# Minimal test / Минимальный тест:
-# 1. Press Space (sound should play) / Нажмите Space (должен воспроизвестись звук)
-# 2. Press n (next + sound) / Нажмите n (следующий + звук)
-# 3. Press R (infinite repeat) / Нажмите R (бесконечный повтор)
-# 4. Wait 2 repetitions / Подождите 2 повторения
-# 5. Press s (stop) / Нажмите s (остановка)
-# 6. Press q (quit) / Нажмите q (выход)
+# Minimal test:
+# 1. Press Space (sound should play)
+# 2. Press n (next + sound)
+# 3. Press R (infinite repeat)
+# 4. Wait 2 repetitions
+# 5. Press s (stop)
+# 6. Press q (quit)
 ```
 
 **If all 6 steps work - interactive mode is functioning correctly!**
 
-**Если все 6 шагов работают - интерактивный режим функционирует правильно!**
+#### Troubleshooting Interactive Mode
 
-#### Troubleshooting Interactive Mode / Устранение проблем интерактивного режима
+**Problem:** "curses error" or distorted display
+**Solution:** Increase terminal size to minimum 80x24 characters
 
-**Problem:** "curses error" or distorted display / Искаженное отображение
-**Solution:** Increase terminal size to minimum 80x24 characters / Увеличьте размер терминала
+**Problem:** Keys not responding
+**Solution:** Ensure terminal is in focus, press Enter
 
-**Problem:** Keys not responding / Клавиши не реагируют
-**Solution:** Ensure terminal is in focus, press Enter / Убедитесь, что терминал в фокусе
+**Problem:** Audio not playing
+**Solution:** Check system volume, test batch mode first
 
-**Problem:** Audio not playing / Звук не воспроизводится
-**Solution:** Check system volume, test batch mode first / Проверьте громкость системы
-## Signal Format / Формат сигналов
+## Signal Format
 
 Each line: `frequency;duration_ms;level_percent`
 
-### Examples / Примеры
+### Examples
 
-#### Single frequency / Одиночная частота
+#### Single frequency
 ```
 850;1000;50
 ```
 850 Hz tone, 1000 ms duration, 50% volume
 
-#### Frequency sweep / Частотный диапазон
+#### Frequency sweep
 ```
 1200-850;1200;40-10
 ```
 Ramp from 1200 Hz down to 850 Hz over 1200 ms, volume 40% to 10%
 
-#### Chord / Аккорд
+#### Chord
 ```
 1200,850;1000;20,30
 ```
 Two frequencies: 1200 Hz @ 20% + 850 Hz @ 30%, 1000 ms
 
-## Cross-Platform Playback / Кроссплатформенность
+## Cross-Platform Playback
 
 ### macOS
 - Uses `afplay` (built-in)
@@ -270,7 +245,7 @@ Two frequencies: 1200 Hz @ 20% + 850 Hz @ 30%, 1000 ms
 - Uses `termux-media-player`
 - Install: `pkg install termux-api`
 
-## Project Structure / Структура проекта
+## Project Structure
 
 ```
 soundtest/
@@ -278,7 +253,6 @@ soundtest/
 ├── README.md              # Documentation
 ├── LICENSE                # MIT License
 ├── sound.txt              # Example signals
-├── .project_profile.json  # Session recovery
 ├── output/                # Generated WAV files
 └── examples/              # Additional examples
     ├── simple.txt         # Simple examples
@@ -286,7 +260,7 @@ soundtest/
     └── test.txt           # Test signals
 ```
 
-## Examples / Примеры
+## Examples
 
 ```bash
 # Simple tones
@@ -299,7 +273,7 @@ python3 generate_sound.py -i examples/complex.txt --interactive
 python3 generate_sound.py -i examples/test.txt
 ```
 
-## Troubleshooting / Устранение проблем
+## Troubleshooting
 
 ### "No audio player found"
 - Linux: Install `paplay` or `aplay`
@@ -314,11 +288,11 @@ python3 generate_sound.py -i examples/test.txt
 - Verify audio player installation
 - Try `--no-play` and check output file
 
-## License / Лицензия
+## License
 
 MIT License - see LICENSE file
 
-## Contributing / Участие
+## Contributing
 
 Contributions welcome! Areas for improvement:
 - Signal visualization
