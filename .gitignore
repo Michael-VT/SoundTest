@@ -17,6 +17,9 @@ Thumbs.db
 ._*
 .Spotlight-V100
 .Trashes
+.gitkeep
+.gitignore
+.project_profile.json
 
 # IDE
 .vscode/
@@ -28,7 +31,4 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
-.gitkeep
-.gitignore
-.project_profile.json
 
