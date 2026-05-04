@@ -22,7 +22,7 @@
 # Test 7: Triple frequency chord
 440,554,659;1500;33,33,33
 
-# Test 8: Complex - both frequency and volume ramp
+# Test 8: Complex - both frequency and volume ramp ed
 1000-500;1500;70-30
 
 # Test 9: Very short click
